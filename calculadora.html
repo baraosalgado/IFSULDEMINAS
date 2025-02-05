@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Moisés Salgado de Morais">
+    <title>Calculadora em Javascript</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        p {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: medium;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Calculadora em Javascript</h3>
+    <input type="number" id="valorA" placeholder="Insira o valor A">
+    <br>
+    <br>
+    <select id="operacao">
+        <option> - Escolha o operador - </option>
+        <option value="add"> (+) Adicionar</option>
+        <option value="subtract"> (-) Subtrair</option>
+        <option value="multiply"> (*) Multiplicar</option>
+        <option value="divide"> (/) Dividir</option>
+    </select>
+    <br>
+    <br>
+    <input type="number" id="valorB" placeholder="Insira o valor B">
+    <br>
+    <br>
+    <button onclick="calcularComIf()">Calcular com IF</button>
+    <button onclick="calcularComSwitch()">Calcular com Switch</button>
+    <br>
+    <br>
+    <input type="text" id="resultado" placeholder="Resultado" readonly>
+
+    <p>&copy; 2025 by Moisés Salgado. All Rights Reserved.</p>
+
+    <script>
+        function calcularComIf() {
+            let valorA = parseFloat(document.getElementById('valorA').value);
+            let valorB = parseFloat(document.getElementById('valorB').value);
+            let operacao = document.getElementById('operacao').value;
+            let resultado;
+
+            if (operacao === 'add') {
+                resultado = valorA + valorB;
+            } else if (operacao === 'subtract') {
+                resultado = valorA - valorB;
+            } else if (operacao === 'multiply') {
+                resultado = valorA * valorB;
+            } else if (operacao === 'divide') {
+                resultado = valorA / valorB;
+            }
+
+            document.getElementById('resultado').value = resultado;
+        }
+
+        function calcularComSwitch() {
+            let valorA = parseFloat(document.getElementById('valorA').value);
+            let valorB = parseFloat(document.getElementById('valorB').value);
+            let operacao = document.getElementById('operacao').value;
+            let resultado;
+
+            switch (operacao) {
+                case 'add':
+                    resultado = valorA + valorB;
+                    break;
+                case 'subtract':
+                    resultado = valorA - valorB;
+                    break;
+                case 'multiply':
+                    resultado = valorA * valorB;
+                    break;
+                case 'divide':
+                    resultado = valorA / valorB;
+                    break;
+            }
+
+            document.getElementById('resultado').value = resultado;
+        }
+    </script>
+</body>
+
+</html>
